@@ -1,11 +1,5 @@
-.App {
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  background: #171717;
-}
-
-.container {
-  width: 800px;
+.my-container {
+  max-width: 1000px;
   margin: 0 auto;
+  padding: 20px;
 }

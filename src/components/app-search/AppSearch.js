@@ -3,19 +3,23 @@ import "./AppSearch.css";
 const AppSearch = () => {
   return (
     <div className="app-search">
+      {/* Search */}
       <input
         type="text"
         placeholder="Search..."
         className="app-search-input form-control"
       />
 
-      <div className="btn-group mt-3">
-        <button className="btn btn-light">Barcha kinolar</button>
-        <button className="btn btn-outline-light">
-          Eng ko'p korilgan kinolar
+      {/* Filter */}
+      <div class="btn-group mt-3" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-light">
+          Left
         </button>
-        <button className="btn btn-outline-light">
-          Barcha qidirgan kinolar
+        <button type="button" class="btn btn-outline-light">
+          Middle
+        </button>
+        <button type="button" class="btn btn-outline-light">
+          Right
         </button>
       </div>
     </div>
