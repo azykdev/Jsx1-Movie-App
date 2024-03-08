@@ -1,13 +1,19 @@
 .movie-list-item {
   border-bottom: 1px solid #7c7c7c;
   padding: 5px 0;
+  transition: all .3s ease;
 }
 .movie-list-item:last-child {
   border-bottom: 0;
 }
 
+h6 {
+  transition: all .3s ease;
+}
+
 #rating {
   background-color: #ebebeb;
+  transition: all .3s ease;
 }
 
 #cookie {
@@ -32,11 +38,13 @@
   transition: all .3s ease;
   transform: translateX(30px);
   opacity: 0;
+  
 }
 
 .movie-list-item.star #star {
   transform: translateX(0);
   opacity: 1;
+  text-shadow: 0 0 10px #36f336;
 }
 
 .movie-list-item:hover #star {
