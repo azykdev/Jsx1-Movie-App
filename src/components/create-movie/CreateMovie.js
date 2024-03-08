@@ -1,12 +1,13 @@
 import "./CreateMovie.css";
 import { Component } from "react";
+import { v4 as uuidv4 } from 'uuid';
 
 class CreateMovie extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      title: "aaa",
+      title: "",
       rating: "",
     };
   }
@@ -16,6 +17,25 @@ class CreateMovie extends Component {
 
     this.setState({ [name]: value });
   };
+
+  submitHandler = (event) => {
+    event.preventDefault();
+    const { title, rating } = this.state;
+    
+
+    if (title && rating) {
+      this.props.addMovie({
+        title,
+        rating: +rating,
+        id: uuidv4(),
+        cookie: false,
+        star: false,
+      })
+  
+      this.setState({ title: "", rating: "" });
+    }
+  }
+
   render() {
     const { title, rating } = this.state;
 
@@ -46,7 +66,7 @@ class CreateMovie extends Component {
               />
             </div>
             <div className="col-md-3">
-              <button className="rounded" type="submit">
+              <button  onClick={this.submitHandler} className="rounded" type="submit">
                 Create
               </button>
             </div>

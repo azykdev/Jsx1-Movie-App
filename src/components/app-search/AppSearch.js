@@ -11,14 +11,14 @@ const AppSearch = () => {
       />
 
       {/* Filter */}
-      <div class="btn-group mt-3" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-light">
+      <div className="btn-group mt-3" role="group" aria-label="Basic example">
+        <button type="button" className="btn btn-light">
           Left
         </button>
-        <button type="button" class="btn btn-outline-light">
+        <button type="button" className="btn btn-outline-light">
           Middle
         </button>
-        <button type="button" class="btn btn-outline-light">
+        <button type="button" className="btn btn-outline-light">
           Right
         </button>
       </div>
