@@ -14,26 +14,27 @@ class App extends Component {
       data: [
         {
           id: 1,
-          title: "Movie 1",
+          title: "Omar",
           rating: 5,
           cookie: true,
           star: true,
         },
         {
           id: 2,
-          title: "Movie 2",
+          title: "Ertugrul",
           rating: 6,
           cookie: false,
           star: false,
         },
         {
           id: 3,
-          title: "Movie 3",
+          title: "Asqar",
           rating: 4,
           cookie: false,
           star: false,
         },
       ],
+      term: "",
     };
   }
 
@@ -63,24 +64,41 @@ class App extends Component {
           return {
             ...movie,
             [el]: !movie[el],
-          }
+          };
         }
 
-        return movie
+        return movie;
       }),
     });
   };
 
+  searchMovie = (arr, term) => {
+    if (term.length === 0) {
+      return arr;
+    } else {
+      return arr.filter(
+        (movie) => movie.title.toLowerCase().indexOf(term.toLowerCase()) > -1
+      );
+    }
+  };
+
+  updateTerm = (e) => {
+    this.setState({
+      term: e,
+    });
+  };
+
   render() {
-    const { data } = this.state;
+    const { data, term } = this.state;
+    const visibleData = this.searchMovie(data, term);
 
     return (
       <div className="App">
         <div className="my-container">
           <AppInfo data={data} />
-          <AppSearch />
+          <AppSearch updateTerm={this.updateTerm} term={this.state.term} />
           <MovieList
-            data={data}
+            data={visibleData}
             onDelete={this.onDelete}
             toggleLikeAndCookieHandler={this.toggleLikeAndCookieHandler}
           />

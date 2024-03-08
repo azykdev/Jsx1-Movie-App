@@ -3,7 +3,7 @@ import MovieListItem from "../movie-list-item/MovieListItem";
 
 const MovieList = ({ data, onDelete, toggleLikeAndCookieHandler }) => {
   return (
-    <div className="movie-list">
+    <div  className="movie-list">
       {data.map((movie) => (
         <MovieListItem
           key={movie.id}
