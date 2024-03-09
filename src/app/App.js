@@ -35,6 +35,7 @@ class App extends Component {
         },
       ],
       term: "",
+      filter: "all",
     };
   }
 
@@ -88,15 +89,37 @@ class App extends Component {
     });
   };
 
+  filterData = () => {
+    const { data, filter } = this.state;
+
+    switch (filter) {
+      case 'all':
+        return data;
+        break;
+      case 'rating':
+        return data.filter(movie => movie.rating >= 5);
+        break;
+      case 'liked':
+        return data.filter(movie => movie.star);
+        break;
+    }
+  }
+
+  updateFilter = (filter) => {
+    this.setState({
+      filter: filter
+    })
+  }
+
   render() {
     const { data, term } = this.state;
-    const visibleData = this.searchMovie(data, term);
+    const visibleData = this.searchMovie(this.filterData(), term);
 
     return (
       <div className="App">
         <div className="my-container">
           <AppInfo data={data} />
-          <AppSearch updateTerm={this.updateTerm} term={this.state.term} />
+          <AppSearch updateFilter={this.updateFilter} filter={this.state.filter}  updateTerm={this.updateTerm} term={this.state.term} />
           <MovieList
             data={visibleData}
             onDelete={this.onDelete}
