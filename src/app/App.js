@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import { Component } from "react";
 
 import AppInfo from "../components/app-info/AppInfo";
@@ -93,23 +93,20 @@ class App extends Component {
     const { data, filter } = this.state;
 
     switch (filter) {
-      case 'all':
+      case "all":
         return data;
-        break;
-      case 'rating':
-        return data.filter(movie => movie.rating >= 5);
-        break;
-      case 'liked':
-        return data.filter(movie => movie.star);
-        break;
+      case "rating":
+        return data.filter((movie) => movie.rating >= 5);
+      case "liked":
+        return data.filter((movie) => movie.star);
     }
-  }
+  };
 
   updateFilter = (filter) => {
     this.setState({
-      filter: filter
-    })
-  }
+      filter: filter,
+    });
+  };
 
   render() {
     const { data, term } = this.state;
@@ -119,7 +116,12 @@ class App extends Component {
       <div className="App">
         <div className="my-container">
           <AppInfo data={data} />
-          <AppSearch updateFilter={this.updateFilter} filter={this.state.filter}  updateTerm={this.updateTerm} term={this.state.term} />
+          <AppSearch
+            updateFilter={this.updateFilter}
+            filter={this.state.filter}
+            updateTerm={this.updateTerm}
+            term={this.state.term}
+          />
           <MovieList
             data={visibleData}
             onDelete={this.onDelete}

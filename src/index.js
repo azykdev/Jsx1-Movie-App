@@ -1,12 +1,10 @@
-import "./index.css";
+import "./index.scss";
 import React from "react";
 import ReactDOM from "react-dom/client";
 // App
-import App from "./app/App"
+import App from "./app/App";
 // MDI
-import '@mdi/font/css/materialdesignicons.css';
-// Bootstrap
-import "bootstrap/dist/css/bootstrap.min.css";
+import "@mdi/font/css/materialdesignicons.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
